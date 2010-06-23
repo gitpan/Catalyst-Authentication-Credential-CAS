@@ -5,7 +5,7 @@ use namespace::autoclean;
 use Authen::CAS::Client;
 use Moose;
 
-our $VERSION = '0.00';
+our $VERSION = '0.01';
 
 
 has uri            => ( is => 'ro', isa => 'Str', required => 1 );
@@ -70,7 +70,7 @@ sub authenticate {
   $c->log->debug( 'Ticket validated for user "'. $response->user. '"' )
     if $c->debug;
 
-  $realm->find_user({ $self->username_field => $response->user })
+  $realm->find_user( { $self->username_field => $response->user }, $c )
 }
 
 sub _login_uri {
@@ -215,10 +215,6 @@ more on the C<'renew'>, C<'gateway'> and C<'pgtUrl'> parameters.
 None are known at this time, but if you find one, please feel
 free to submit a report to the author.
 
-=head1 AUTHOR
-
-jason hord E<lt>pravus@cpan.orgE<gt>
-
 =head1 SEE ALSO
 
 =over 2
@@ -228,6 +224,10 @@ jason hord E<lt>pravus@cpan.orgE<gt>
 =item L<Catalyst::Plugin::Authentication|Catalyst::Plugin::Authentication>
 
 =back
+
+=head1 AUTHOR
+
+jason hord E<lt>pravus@cpan.orgE<gt>
 
 =head1 COPYRIGHT
 
