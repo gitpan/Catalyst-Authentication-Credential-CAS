@@ -5,7 +5,7 @@ use namespace::autoclean;
 use Authen::CAS::Client;
 use Moose;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 has uri            => ( is => 'ro', isa => 'Str', required => 1 );

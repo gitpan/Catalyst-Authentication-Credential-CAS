@@ -30,8 +30,6 @@ sub default :Path {
   $c->response->body( 'Page not found' );
 }
 
-sub end :ActionClass( 'RenderView' ) { }
-
 
 __PACKAGE__->meta->make_immutable;
 
